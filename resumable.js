@@ -398,6 +398,18 @@
       $h.each(fileList, function(file){
         var fileName = file.name;
         var fileType = file.type; // e.g video/mp4
+        var extension = file.name.split('.').pop();
+
+        // when filetype is empty, good chance it's a chrome bug. See https://bugs.chromium.org/p/chromium/issues/detail?id=155455
+        if (!fileType) {
+          var buggedExtensions = ['xls', 'xlsx', 'xlt', 'xla', 'ppt', 'pptx', 'ppsx', 'pot', 'pps', 'ppa', 'doc', 'dot', 'docx'];
+
+          if (buggedExtensions.indexOf(extension) === -1) {
+            o.fileTypeErrorCallback(file, errorCount++);
+            return true;
+          }
+        }
+
         if(o.fileType.length > 0){
           var fileTypeFound = false;
           for(var index in o.fileType){
