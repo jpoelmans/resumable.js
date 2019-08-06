@@ -410,7 +410,7 @@
           }
         }
 
-        if(o.fileType.length > 0){
+        if(fileType && o.fileType.length > 0){
           var fileTypeFound = false;
           for(var index in o.fileType){
             // For good behaviour we do some inital sanitizing. Remove spaces and lowercase all
