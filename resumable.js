@@ -402,7 +402,7 @@
 
         // when filetype is empty, good chance it's a chrome bug. See https://bugs.chromium.org/p/chromium/issues/detail?id=155455
         if (!fileType) {
-          var buggedExtensions = ['xls', 'xlsx', 'xlt', 'xla', 'ppt', 'pptx', 'ppsx', 'pot', 'pps', 'ppa', 'doc', 'dot', 'docx'];
+          var buggedExtensions = ['xls', 'xlsx', 'xlt', 'xla', 'ppt', 'pptx', 'ppsx', 'pot', 'pps', 'ppa', 'doc', 'dot', 'docx', 'csv'];
 
           if (buggedExtensions.indexOf(extension) === -1) {
             o.fileTypeErrorCallback(file, errorCount++);
